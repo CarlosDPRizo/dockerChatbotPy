@@ -1,0 +1,8 @@
+aiomysql
+tensorflow==2.15.0  # Versão EXATA requerida pelo TF-DF 1.8.1
+tensorflow_decision_forests==1.8.1
+flask==3.0.2
+python-dotenv==1.0.0
+uvicorn==0.27.0
+asgiref==3.7.2
+pandas==2.1.4

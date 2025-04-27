@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Ocorrências</title>
+
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas com tamanhos iguais */
+        grid-auto-rows: 17rem; /* Altura fixa de 5rem para as linhas */
+        gap: 2rem; /* Espaçamento entre colunas e linhas */
+        margin: 2rem auto; /* Centraliza horizontalmente */
+        max-width: 100%; /* Evita que ultrapasse a largura da tela */
+        box-sizing: border-box; /* Inclui paddings e bordas no cálculo de largura */
+        padding: 0 2rem; /* Adiciona espaçamento interno, sem causar scroll */
+      }
+    
+      .grid-container div {
+        background-color: lightgray;
+        text-align: left;
+        display: flex; /* Para alinhar conteúdo */
+        align-items: left; /* Centraliza verticalmente */
+        justify-content: center; /* Centraliza horizontalmente */
+        padding-left: 1rem;
+      }
+
+      .grid-container div h2 {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      
+      .grid-container div p {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .grid-container ul {
+        list-style-type: disc; /* Define o estilo da lista */
+        padding: 1rem; /* Espaçamento interno para alinhamento */
+        text-align: left; /* Alinha os itens à esquerda */
+      }
+      
+      .grid-container ul li {
+        margin-bottom: 0.5rem; /* Espaço entre os itens da lista */
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte */
+      }
+      
+      main div {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+    <!-- <style>
+      body {
+          background-image: url('/img/imagem-site.jpeg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          margin: 0;
+          height: 100vh;
+          display: flex;
+      }
+  </style> -->
+</head>
+<body>
+    <header>
+      <div style="background-color: darkblue; height: 5rem; font-size: 3rem; color: white; display: flex; align-items: center; justify-content: left; padding-left: 1rem;">
+        Template - Gestão de Sinistros
+      </div>
+    </header>
+    <main>
+      <div class="grid-container">
+          <div>
+              <header>
+                  <h2>Mensagens</h2>
+                  <p>Visualize e gerencie todas as mensagens recebidas.</p>
+              </header>
+              <ul>
+                  <li>Mensagem 1: Confirmação de entrega</li>
+                  <li>Mensagem 2: Aviso de manutenção</li>
+                  <li>Mensagem 3: Solicitação de suporte</li>
+              </ul>
+          </div>
+          <div>
+              <header>
+                  <h2>Pendências</h2>
+                  <p>Lista de tarefas e solicitações pendentes.</p>
+              </header>
+              <ul>
+                  <li>Pendência 1: Aprovar orçamento</li>
+                  <li>Pendência 2: Atualizar cadastro</li>
+                  <li>Pendência 3: Revisar relatório</li>
+              </ul>
+          </div>
+          <div>
+              <header>
+                  <h2>Carros</h2>
+                  <p>Informações sobre os veículos cadastrados.</p>
+              </header>
+              <ul>
+                  <li>Carro 1: Modelo X - Em manutenção</li>
+                  <li>Carro 2: Modelo Y - Disponível</li>
+                  <li>Carro 3: Modelo Z - Em trânsito</li>
+              </ul>
+          </div>
+          <div>
+              <header>
+                  <h2>Prazo</h2>
+                  <p>Confira os prazos de atividades e entregas.</p>
+              </header>
+              <ul>
+                  <li>Prazo 1: Entrega até 10/04/2025</li>
+                  <li>Prazo 2: Tarefa finalizada até 15/04/2025</li>
+                  <li>Prazo 3: Revisão até 20/04/2025</li>
+              </ul>
+          </div>
+      </div>
+    </main>
+</body>
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="Gestão de Sinistros"
+  agent-id="764d61d7-c36e-4f9c-933c-ccfea8452953"
+  language-code="pt-br"
+  chat-icon="/Public/img/iconeChatBot.png"
+></df-messenger>
+</html>

@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: flask-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+    env_file:
+      - .env
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0
+    container_name: database
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=passwd
+      - MYSQL_DATABASE=chatbot
+      - MYSQL_BIND_ADDRESS=0.0.0.0  # Permite conexões de qualquer IP
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  ngrok:
+    image: ngrok/ngrok
+    container_name: tunel-ngrok
+    restart: always
+    environment:
+      - NGROK_AUTHTOKEN=2nylhLKI5puO4moqfoj6XENA7Bd_4eamU4jHxPB9hRY7n7HM7
+    command: http app:3000 --url=guided-whale-initially.ngrok-free.app
+    depends_on:
+      - app
+    ports:
+      - "4040:4040"
+    networks:
+      - app-network
+
+volumes:
+  mysql_data:
+
+networks:
+  app-network:
+    driver: bridge
